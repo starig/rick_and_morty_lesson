@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:rick_and_morty_lesson/models/character/character.dart';
 import 'package:rick_and_morty_lesson/models/character_response/character_response.dart';
 
 part 'api.g.dart';
@@ -10,4 +11,7 @@ abstract class RickAndMortyApiClient {
 
   @GET('/character')
   Future<CharacterResponse> getCharacters();
+
+  @GET('/character/{id}')
+  Future<Character> getCharacterDetails(@Path('id') String id);
 }
