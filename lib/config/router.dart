@@ -5,7 +5,9 @@ import 'package:rick_and_morty_lesson/features/home/view/home_view.dart';
 
 class AppRoutes {
   static const String homePath = '/';
-  static const String detailsPath = '/details/:id';
+  static const String _detailsPath = '/details/:id';
+
+  get detailsPath => _detailsPath.replaceAll("/:id", '');
 }
 
 class AppRouterHelper {
@@ -28,8 +30,10 @@ class AppRouterHelper {
         builder: (context, state) => HomeView(),
       ),
       GoRoute(
-        path: AppRoutes.detailsPath,
-        builder: (context, state) => DetailsView(),
+        path: AppRoutes._detailsPath,
+        builder: (context, state) => DetailsView(
+          id: int.parse(state.pathParameters['id']!),
+        ),
       ),
     ];
 

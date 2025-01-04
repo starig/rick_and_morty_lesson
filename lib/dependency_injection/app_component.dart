@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:rick_and_morty_lesson/config/constants.dart';
 import 'package:rick_and_morty_lesson/data/rick_and_morty/repository.dart';
+import 'package:rick_and_morty_lesson/domain/use_cases/get_character_details_use_case.dart';
 import 'package:rick_and_morty_lesson/domain/use_cases/get_characters_use_case.dart';
 import 'package:rick_and_morty_lesson/services/rick_and_morty_api/api.dart';
 
@@ -39,7 +40,11 @@ _configureRepositories() {
 _configureUseCases() {
   final RickAndMortyRepository rickAndMortyRepository = getIt.get<RickAndMortyRepository>();
 
-  getIt.registerLazySingleton<GetCharactersUseCase>(
-    () => GetCharactersUseCase(rickAndMortyRepository),
-  );
+  getIt
+    ..registerLazySingleton<GetCharacterDetailsUseCase>(
+      () => GetCharacterDetailsUseCase(rickAndMortyRepository),
+    )
+    ..registerLazySingleton<GetCharactersUseCase>(
+      () => GetCharactersUseCase(rickAndMortyRepository),
+    );
 }

@@ -15,14 +15,60 @@ import 'package:vector_graphics/vector_graphics.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/alien.svg
+  SvgGenImage get alien => const SvgGenImage('assets/images/alien.svg');
+
+  /// File path: assets/images/alive.svg
+  SvgGenImage get alive => const SvgGenImage('assets/images/alive.svg');
+
+  /// File path: assets/images/arrow-left.svg
+  SvgGenImage get arrowLeft =>
+      const SvgGenImage('assets/images/arrow-left.svg');
+
+  /// File path: assets/images/dead.svg
+  SvgGenImage get dead => const SvgGenImage('assets/images/dead.svg');
+
+  /// File path: assets/images/female.svg
+  SvgGenImage get female => const SvgGenImage('assets/images/female.svg');
+
+  /// File path: assets/images/gender_unknown.svg
+  SvgGenImage get genderUnknown =>
+      const SvgGenImage('assets/images/gender_unknown.svg');
+
+  /// File path: assets/images/human.svg
+  SvgGenImage get human => const SvgGenImage('assets/images/human.svg');
+
+  /// File path: assets/images/information.svg
+  SvgGenImage get information =>
+      const SvgGenImage('assets/images/information.svg');
+
   /// File path: assets/images/liked.svg
   SvgGenImage get liked => const SvgGenImage('assets/images/liked.svg');
+
+  /// File path: assets/images/male.svg
+  SvgGenImage get male => const SvgGenImage('assets/images/male.svg');
+
+  /// File path: assets/images/unknown.svg
+  SvgGenImage get unknown => const SvgGenImage('assets/images/unknown.svg');
 
   /// File path: assets/images/unliked.svg
   SvgGenImage get unliked => const SvgGenImage('assets/images/unliked.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [liked, unliked];
+  List<SvgGenImage> get values => [
+        alien,
+        alive,
+        arrowLeft,
+        dead,
+        female,
+        genderUnknown,
+        human,
+        information,
+        liked,
+        male,
+        unknown,
+        unliked
+      ];
 }
 
 class Assets {
