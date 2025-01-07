@@ -22,9 +22,9 @@ class _RickAndMortyApiClient implements RickAndMortyApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<CharacterResponse> getCharacters() async {
+  Future<CharacterResponse> getCharacters(int page) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'page': page};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<CharacterResponse>(Options(

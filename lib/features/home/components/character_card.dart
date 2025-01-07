@@ -97,6 +97,16 @@ class CharacterCard extends StatelessWidget {
                           );
                         }
                       },
+                      errorBuilder:
+                          (BuildContext context, Object exception, StackTrace? stackTrace) {
+                        return SizedBox(
+                          height: 160,
+                          width: 160,
+                          child: Expanded(
+                            child: Container(),
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Positioned(
