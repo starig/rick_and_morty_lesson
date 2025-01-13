@@ -1,4 +1,4 @@
-import 'package:rick_and_morty_lesson/data/rick_and_morty/repository.dart';
+import 'package:rick_and_morty_lesson/data/repositories/rick_and_morty/repository.dart';
 import 'package:rick_and_morty_lesson/models/character_response/character_response.dart';
 
 class GetCharactersUseCase {

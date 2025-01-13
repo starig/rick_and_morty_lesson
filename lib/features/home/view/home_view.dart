@@ -75,6 +75,7 @@ class _HomeViewState extends State<HomeView> {
                   return RefreshIndicator(
                     onRefresh: () async {
                       await context.read<HomeCubit>().getCharacters();
+                      await context.read<HomeCubit>().getFavoriteCharacters();
                     },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -88,7 +89,10 @@ class _HomeViewState extends State<HomeView> {
                               (BuildContext context, int index) {
                                 if (index <= (state.characters.length - 2)) {
                                   final character = state.characters[index];
-                                  return CharacterCard(character: character);
+                                  return CharacterCard(
+                                    character: character,
+                                    isFavorite: state.favoriteCharacters.contains(character.id),
+                                  );
                                 } else {
                                   return Skeletonizer(
                                     child: CharacterCard(
@@ -106,6 +110,7 @@ class _HomeViewState extends State<HomeView> {
                                         url: 'url',
                                         created: DateTime.now(),
                                       ),
+                                      isFavorite: false,
                                     ),
                                   );
                                 }

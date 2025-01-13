@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rick_and_morty_lesson/config/app_colors.dart';
 import 'package:rick_and_morty_lesson/config/helpers.dart';
 import 'package:rick_and_morty_lesson/config/router.dart';
 import 'package:rick_and_morty_lesson/config/theme.dart';
+import 'package:rick_and_morty_lesson/features/home/state/home_cubit.dart';
 import 'package:rick_and_morty_lesson/gen/assets.gen.dart';
 import 'package:rick_and_morty_lesson/models/character/character.dart';
 
@@ -18,10 +20,12 @@ class CharacterCard extends StatelessWidget {
   static const double _nameVerticalPadding = 5;
 
   final Character character;
+  final bool isFavorite;
 
   const CharacterCard({
     super.key,
     required this.character,
+    required this.isFavorite,
   });
 
   @override
@@ -116,8 +120,9 @@ class CharacterCard extends StatelessWidget {
                       color: AppColors.whiteSmoke,
                       borderRadius: BorderRadius.circular(_borderRadius),
                       child: InkWell(
-                        onTap: () {
-                          print(character.name);
+                        onTap: () async {
+                          await context.read<HomeCubit>().toggleFavoriteCharacter(character.id);
+                          // print(character.id);
                         },
                         borderRadius: BorderRadius.circular(_borderRadius),
                         child: SizedBox(
@@ -125,7 +130,7 @@ class CharacterCard extends StatelessWidget {
                           width: _likeContainerSize,
                           child: Center(
                             child: SvgPicture.asset(
-                              Assets.images.unliked.path,
+                              isFavorite ? Assets.images.liked.path : Assets.images.unliked.path,
                               width: _iconSize,
                               height: _iconSize,
                             ),

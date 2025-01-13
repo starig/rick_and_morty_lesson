@@ -3,6 +3,7 @@ part of 'home_cubit.dart';
 class HomeState {
   bool isPending;
   List<Character> characters;
+  List<int> favoriteCharacters;
   String? errorMessage;
   int currentPage;
   int totalPages;
@@ -12,6 +13,7 @@ class HomeState {
   HomeState({
     required this.isPending,
     required this.characters,
+    required this.favoriteCharacters,
     required this.currentPage,
     required this.totalPages,
     required this.isAllLoaded,
@@ -26,11 +28,13 @@ class HomeState {
     int? currentPage,
     int? totalPages,
     List<Character>? characters,
+    List<int>? favoriteCharacters,
     String? errorMessage,
   }) {
     return HomeState(
       isPending: isPending ?? this.isPending,
       characters: characters ?? this.characters,
+      favoriteCharacters: favoriteCharacters ?? this.favoriteCharacters,
       errorMessage: errorMessage ?? this.errorMessage,
       currentPage: currentPage ?? this.currentPage,
       totalPages: totalPages ?? this.totalPages,
